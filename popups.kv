@@ -1,0 +1,18 @@
+
+#Make efficient with inheritance
+<invalid_login_popup>:
+    size_hint:(0.3, 0.3)
+    title:"Metpop"
+    background_color : [0.9, 0.9, 0.9, 0.6]
+    separator_color : [1,0.76,0.05,0.75]
+    title_color : [0.2,0.2,0.2,1]
+    background : ""
+    title_align : "center"
+    FloatLayout:
+        Label:
+            text_size : self.size
+            text: "Invalid Login Credentials, Try using different names/passwords"
+            halign: 'left'
+            pos_hint : {"x":0.16,"y":0.7}
+            size_hint : 0.8,0.8
+            color : [0.2,0.2,0.2,1]
