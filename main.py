@@ -18,7 +18,7 @@ import functions
 import socket
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(("10.0.0.1", 27020))
+client_socket.connect(("127.0.0.1", 27020))
 
 
 class MetroLogin(Screen):
@@ -38,12 +38,13 @@ class MetroLogin(Screen):
         if server_response == "0":
             popup = invalid_login_popup()
             popup.open()
+            self.logged = False
 
         elif server_response == "1":
             self.logged = True
         else:
             print server_response
-
+        print self.logged
 
 class MetroRegister(Screen):
     register_email = ObjectProperty(None)
@@ -58,6 +59,10 @@ class MetroRegister(Screen):
 
         # Recv response:
         print client_socket.recv(1024)
+
+
+class MetroChat(Screen):
+    pass
 
 
 class MetroWinmanager(ScreenManager):

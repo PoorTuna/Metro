@@ -29,16 +29,16 @@ while True:  # Temporary until threads will be initialized:
         name = login_info[0]
         password = login_info[1]
 
-        if check_name_pass(name,password,USER_DATA,0) and (name != "" and password != ""):
+        if check_name_pass(name, password, USER_DATA, 0) and (name != "" and password != ""):
             logged = True
 
         if login_attempts <= 5:
             if logged:
                 login_attempts = 0
-                client_socket.send("1") #Logged On! CALL FUNCTION TO CHANGE SCREEN!
+                client_socket.send("1")  # Logged On! CALL FUNCTION TO CHANGE SCREEN!
             else:
                 login_attempts += 1
-                client_socket.send("0") # Invalid Credentials!
+                client_socket.send("0")  # Invalid Credentials!
                 logged = False
         else:
             client_socket.send("Too many login attempts! Please try again later...")
@@ -68,3 +68,5 @@ while True:  # Temporary until threads will be initialized:
     else:
         client_socket.send("Illegal Request!")
         client_socket.close()
+
+    # Server chat main
